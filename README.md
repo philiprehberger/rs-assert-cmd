@@ -17,7 +17,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dev-dependencies]
-philiprehberger-assert-cmd = "0.1.0"
+philiprehberger-assert-cmd = "0.1.1"
 ```
 
 ## Usage
