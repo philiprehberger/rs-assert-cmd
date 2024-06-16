@@ -7,10 +7,6 @@
 
 Ergonomic CLI binary integration testing with fluent assertions on stdout, stderr, and exit code
 
-## Requirements
-
-- Rust 1.70+
-
 ## Installation
 
 Add to your `Cargo.toml`:
