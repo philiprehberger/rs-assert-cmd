@@ -8,11 +8,9 @@ Ergonomic CLI binary integration testing with fluent assertions on stdout, stder
 
 ## Installation
 
-Add to your `Cargo.toml`:
-
 ```toml
-[dev-dependencies]
-philiprehberger-assert-cmd = "0.1.1"
+[dependencies]
+philiprehberger-assert-cmd = "0.1.2"
 ```
 
 ## Usage
@@ -90,7 +88,6 @@ cmd("echo")
 ## Development
 
 ```bash
-cargo build
 cargo test
 cargo clippy -- -D warnings
 ```

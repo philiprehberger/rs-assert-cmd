@@ -1,14 +1,14 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## 0.1.2 (2026-03-22)
+
+- Fix README, CHANGELOG, and CI compliance
 
 ## 0.1.1 (2026-03-20)
 
 - Re-release with registry token configured
 
 ## 0.1.0 (2026-03-19)
-
-### Features
 
 - Fluent `Cmd` builder for spawning CLI processes
 - Builder methods: `arg`, `args`, `env`, `stdin`, `current_dir`, `timeout`
