@@ -2,7 +2,11 @@
 
 [![CI](https://github.com/philiprehberger/rs-assert-cmd/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/rs-assert-cmd/actions/workflows/ci.yml)
 [![Crates.io](https://img.shields.io/crates/v/philiprehberger-assert-cmd.svg)](https://crates.io/crates/philiprehberger-assert-cmd)
+[![GitHub release](https://img.shields.io/github/v/release/philiprehberger/rs-assert-cmd)](https://github.com/philiprehberger/rs-assert-cmd/releases)
+[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/rs-assert-cmd)](https://github.com/philiprehberger/rs-assert-cmd/commits/main)
 [![License](https://img.shields.io/github/license/philiprehberger/rs-assert-cmd)](LICENSE)
+[![Bug Reports](https://img.shields.io/github/issues/philiprehberger/rs-assert-cmd/bug)](https://github.com/philiprehberger/rs-assert-cmd/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+[![Feature Requests](https://img.shields.io/github/issues/philiprehberger/rs-assert-cmd/enhancement)](https://github.com/philiprehberger/rs-assert-cmd/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 [![Sponsor](https://img.shields.io/badge/sponsor-GitHub%20Sponsors-ec6cb9)](https://github.com/sponsors/philiprehberger)
 
 Ergonomic CLI binary integration testing with fluent assertions on stdout, stderr, and exit code
@@ -11,7 +15,7 @@ Ergonomic CLI binary integration testing with fluent assertions on stdout, stder
 
 ```toml
 [dependencies]
-philiprehberger-assert-cmd = "0.1.2"
+philiprehberger-assert-cmd = "0.1.3"
 ```
 
 ## Usage
@@ -93,6 +97,13 @@ cargo test
 cargo clippy -- -D warnings
 ```
 
+## Support
+
+If you find this package useful, consider giving it a star on GitHub — it helps motivate continued maintenance and development.
+
+[![LinkedIn](https://img.shields.io/badge/Philip%20Rehberger-LinkedIn-0A66C2?logo=linkedin)](https://www.linkedin.com/in/philiprehberger)
+[![More packages](https://img.shields.io/badge/more-open%20source%20packages-blue)](https://philiprehberger.com/open-source-packages)
+
 ## License
 
-MIT
+[MIT](LICENSE)
