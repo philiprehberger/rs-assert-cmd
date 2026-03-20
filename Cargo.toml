@@ -1,0 +1,13 @@
+[package]
+name = "philiprehberger-assert-cmd"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+authors = ["Philip Rehberger"]
+description = "Ergonomic CLI binary integration testing with fluent assertions on stdout, stderr, and exit code"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/philiprehberger/rs-assert-cmd"
+documentation = "https://docs.rs/philiprehberger-assert-cmd"
+keywords = ["cli", "testing", "command", "assert", "process"]
+categories = ["development-tools::testing", "command-line-utilities"]
