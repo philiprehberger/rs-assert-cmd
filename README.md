@@ -1,9 +1,8 @@
 # rs-assert-cmd
 
-[![Crates.io](https://img.shields.io/crates/v/philiprehberger-assert-cmd)](https://crates.io/crates/philiprehberger-assert-cmd)
-[![docs.rs](https://img.shields.io/docsrs/philiprehberger-assert-cmd)](https://docs.rs/philiprehberger-assert-cmd)
 [![CI](https://github.com/philiprehberger/rs-assert-cmd/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/rs-assert-cmd/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Crates.io](https://img.shields.io/crates/v/philiprehberger-assert-cmd.svg)](https://crates.io/crates/philiprehberger-assert-cmd)
+[![License](https://img.shields.io/github/license/philiprehberger/rs-assert-cmd)](LICENSE)
 
 Ergonomic CLI binary integration testing with fluent assertions on stdout, stderr, and exit code
 
