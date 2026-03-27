@@ -3,6 +3,7 @@
 [![CI](https://github.com/philiprehberger/rs-assert-cmd/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/rs-assert-cmd/actions/workflows/ci.yml)
 [![Crates.io](https://img.shields.io/crates/v/philiprehberger-assert-cmd.svg)](https://crates.io/crates/philiprehberger-assert-cmd)
 [![License](https://img.shields.io/github/license/philiprehberger/rs-assert-cmd)](LICENSE)
+[![Sponsor](https://img.shields.io/badge/sponsor-GitHub%20Sponsors-ec6cb9)](https://github.com/sponsors/philiprehberger)
 
 Ergonomic CLI binary integration testing with fluent assertions on stdout, stderr, and exit code
 
