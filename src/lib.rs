@@ -341,9 +341,85 @@ impl CmdOutput {
         self
     }
 
+    /// Assert that stderr matches the given glob pattern.
+    ///
+    /// Supports `*` (any number of characters) and `?` (exactly one character).
+    pub fn assert_stderr_matches(&self, pattern: &str) -> &Self {
+        if !glob_match(pattern, self.stderr.trim()) {
+            panic!(
+                "assertion failed: stderr does not match pattern {:?}\nstderr: {:?}",
+                pattern, self.stderr
+            );
+        }
+        self
+    }
+
+    /// Assert that stderr has exactly the given number of lines.
+    pub fn assert_stderr_line_count(&self, count: usize) -> &Self {
+        let lines: Vec<&str> = self.stderr.lines().collect();
+        if lines.len() != count {
+            panic!(
+                "assertion failed: expected {} stderr line(s), got {}\nstderr: {:?}",
+                count,
+                lines.len(),
+                self.stderr
+            );
+        }
+        self
+    }
+
+    /// Assert that stdout starts with the given prefix.
+    pub fn assert_stdout_starts_with(&self, prefix: &str) -> &Self {
+        if !self.stdout.starts_with(prefix) {
+            panic!(
+                "assertion failed: stdout does not start with {:?}\nstdout: {:?}",
+                prefix, self.stdout
+            );
+        }
+        self
+    }
+
+    /// Assert that stdout ends with the given suffix.
+    pub fn assert_stdout_ends_with(&self, suffix: &str) -> &Self {
+        if !self.stdout.ends_with(suffix) {
+            panic!(
+                "assertion failed: stdout does not end with {:?}\nstdout: {:?}",
+                suffix, self.stdout
+            );
+        }
+        self
+    }
+
+    /// Assert that stderr starts with the given prefix.
+    pub fn assert_stderr_starts_with(&self, prefix: &str) -> &Self {
+        if !self.stderr.starts_with(prefix) {
+            panic!(
+                "assertion failed: stderr does not start with {:?}\nstderr: {:?}",
+                prefix, self.stderr
+            );
+        }
+        self
+    }
+
+    /// Assert that stderr ends with the given suffix.
+    pub fn assert_stderr_ends_with(&self, suffix: &str) -> &Self {
+        if !self.stderr.ends_with(suffix) {
+            panic!(
+                "assertion failed: stderr does not end with {:?}\nstderr: {:?}",
+                suffix, self.stderr
+            );
+        }
+        self
+    }
+
     /// Split stdout into lines.
     pub fn stdout_lines(&self) -> Vec<&str> {
         self.stdout.lines().collect()
+    }
+
+    /// Split stderr into lines.
+    pub fn stderr_lines(&self) -> Vec<&str> {
+        self.stderr.lines().collect()
     }
 }
 
@@ -582,5 +658,97 @@ mod tests {
             .assert_exit_code(0)
             .assert_stdout_contains("rustc")
             .assert_stderr_is_empty();
+    }
+
+    #[test]
+    fn test_assert_stderr_matches() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: String::new(),
+            stderr: "error: file not found\n".to_string(),
+        };
+        output.assert_stderr_matches("error*");
+    }
+
+    #[test]
+    #[should_panic(expected = "assertion failed")]
+    fn test_assert_stderr_matches_fails() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: String::new(),
+            stderr: "warning\n".to_string(),
+        };
+        output.assert_stderr_matches("error*");
+    }
+
+    #[test]
+    fn test_assert_stderr_line_count() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: String::new(),
+            stderr: "a\nb\nc".to_string(),
+        };
+        output.assert_stderr_line_count(3);
+    }
+
+    #[test]
+    fn test_assert_stdout_starts_with() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: "hello world\n".to_string(),
+            stderr: String::new(),
+        };
+        output.assert_stdout_starts_with("hello");
+    }
+
+    #[test]
+    #[should_panic(expected = "assertion failed")]
+    fn test_assert_stdout_starts_with_fails() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: "world\n".to_string(),
+            stderr: String::new(),
+        };
+        output.assert_stdout_starts_with("hello");
+    }
+
+    #[test]
+    fn test_assert_stdout_ends_with() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: "hello world\n".to_string(),
+            stderr: String::new(),
+        };
+        output.assert_stdout_ends_with("world\n");
+    }
+
+    #[test]
+    fn test_assert_stderr_starts_with() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: String::new(),
+            stderr: "error: missing file".to_string(),
+        };
+        output.assert_stderr_starts_with("error:");
+    }
+
+    #[test]
+    fn test_assert_stderr_ends_with() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: String::new(),
+            stderr: "permission denied".to_string(),
+        };
+        output.assert_stderr_ends_with("denied");
+    }
+
+    #[test]
+    fn test_stderr_lines() {
+        let output = CmdOutput {
+            status: 0,
+            stdout: String::new(),
+            stderr: "line1\nline2\nline3".to_string(),
+        };
+        assert_eq!(output.stderr_lines(), vec!["line1", "line2", "line3"]);
     }
 }

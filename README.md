@@ -10,7 +10,7 @@ Ergonomic CLI binary integration testing with fluent assertions on stdout, stder
 
 ```toml
 [dependencies]
-philiprehberger-assert-cmd = "0.1.3"
+philiprehberger-assert-cmd = "0.2.0"
 ```
 
 ## Usage
@@ -83,7 +83,14 @@ cmd("echo")
 | `.assert_stderr_contains(s)` | Stderr contains substring |
 | `.assert_stderr_equals(s)` | Stderr equals exactly |
 | `.assert_stderr_is_empty()` | Stderr is empty |
+| `.assert_stderr_matches(pat)` | Stderr matches glob pattern (`*`, `?`) |
+| `.assert_stderr_line_count(n)` | Stderr has n lines |
+| `.assert_stdout_starts_with(s)` | Stdout starts with prefix |
+| `.assert_stdout_ends_with(s)` | Stdout ends with suffix |
+| `.assert_stderr_starts_with(s)` | Stderr starts with prefix |
+| `.assert_stderr_ends_with(s)` | Stderr ends with suffix |
 | `.stdout_lines()` | Split stdout into `Vec<&str>` |
+| `.stderr_lines()` | Split stderr into `Vec<&str>` |
 
 ## Development
 

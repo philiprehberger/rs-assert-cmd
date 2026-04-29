@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 (2026-04-28)
+
+- Add `assert_stderr_matches(pattern)` and `assert_stderr_line_count(n)` for stderr symmetry with stdout
+- Add `assert_stdout_starts_with` / `assert_stdout_ends_with` and stderr counterparts for prefix/suffix checks
+- Add `stderr_lines()` helper
+
 ## 0.1.4 (2026-03-31)
 
 - Standardize README to 3-badge format with emoji Support section
